@@ -1,0 +1,13 @@
+.charts{
+    display: grid;
+   
+   
+}
+@media screen and (min-width:626px) {
+    .charts{
+        display: flex;
+        width: 38%;
+       
+    } 
+  
+}
