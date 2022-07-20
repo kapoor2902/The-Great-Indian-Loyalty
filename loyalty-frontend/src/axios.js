@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "https://loyalty-backend29.herokuapp.com",
+  baseURL: "https://amazon-backend-app.herokuapp.com",
 });
 
 export default instance;
