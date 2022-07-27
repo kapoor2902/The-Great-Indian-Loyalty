@@ -9,7 +9,7 @@
         width: 30%;
        justify-items: center
     } 
-  
+
 }
 .charts{
     border-left: 1px solid black;
@@ -23,4 +23,5 @@ h1{
 .ch{
     display: flex;
     width: 50%;
+
 }
