@@ -11,6 +11,7 @@ function Home() {
   useEffect(() => {
     const fetchdata = async () => {
       const data = await axios.get("/products/get");
+      console.log(data);
       setProducts(data);
     };
     fetchdata();

@@ -5,9 +5,16 @@ import '../css/Barchart.css';
 const BarChart = ({ chartData }) => {
   return (
     <React.Fragment>
+
       <div className="charts">
-        <Pie data={chartData} style={{ height: "40%", width: "19%" }} />
+      <h1>User Analytics</h1>
+  <div className="ch">
+  <Pie data={chartData} />
         <Bar data={chartData} style={{ height: "40%", width: "19%" }} />
+  </div>
+      
+    
+       
       </div>
     </React.Fragment>
   );

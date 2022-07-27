@@ -12,8 +12,7 @@ function Orders() {
       .post("/orders/get", { email: user.email })
       .then((res) => setOrders(res.data));
   }, []);
-  console.log(orders);
-
+ 
   return (
     <Container>
       <Navbar />
@@ -54,6 +53,7 @@ function Orders() {
                       <p>₹ {product.price}</p>
                     </Description>
                   </Product>
+                  
                 ))}
               </OrderBasket>
             </OrderDetail>

@@ -1,8 +1,14 @@
-/* @media screen and (min-width: 626px) {
+@media screen and (min-width: 626px) {
   .profileuse {
     display: flex;
   }
   .profile.details {
     margin: 3rem;
   }
-} */
+}
+.total{
+  margin: 1rem;
+}
+.user{
+  margin: 1rem;
+}
