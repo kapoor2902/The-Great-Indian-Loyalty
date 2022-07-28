@@ -126,12 +126,16 @@ app.post("/orders/add", (req, res) => {
   const price = req.body.price;
   const email = req.body.email;
   const address = req.body.address;
+  const latitude = req.body.latitude;
+  const longitude = req.body.longitude;
 
   const orderDetail = {
     products: products,
     price: price,
     address: address,
     email: email,
+    latitude: latitude,
+    longitude: longitude,
   };
 
   Orders.create(orderDetail, (err, result) => {
@@ -157,3 +161,7 @@ app.post("/orders/get", (req, res) => {
 });
 
 app.listen(port, () => console.log("listening on the port", port));
+
+
+
+
