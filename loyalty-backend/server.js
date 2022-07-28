@@ -10,7 +10,7 @@ const stripe = require("stripe")(
 );
 
 const app = express();
-const port = process.env.PORT || 8000;
+const port = 8000;
 
 // Middlewares
 app.use(express.json());
