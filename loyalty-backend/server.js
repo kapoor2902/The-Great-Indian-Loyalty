@@ -11,7 +11,6 @@ const stripe = require("stripe")(
 );
 
 const app = express();
-// const port = 8000;
 
 // Middlewares
 app.use(express.json());
