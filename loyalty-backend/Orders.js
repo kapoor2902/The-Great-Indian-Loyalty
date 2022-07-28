@@ -5,6 +5,8 @@ const OrderSchema = mongoose.Schema({
   products: Array,
   email: String,
   address: Object,
+  latitude: Number,
+  longitude: Number,
   isOutForDelivery: Boolean, default:false,
 });
 
