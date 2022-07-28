@@ -11,7 +11,7 @@ const stripe = require("stripe")(
 );
 
 const app = express();
-const port = 8000;
+// const port = 8000;
 
 // Middlewares
 app.use(express.json());
@@ -162,9 +162,9 @@ app.post("/orders/get", (req, res) => {
 
 // DELIVERY GUY API
 
-
-
-app.listen(port, () => console.log("listening on the port", port));
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
 
 
 
