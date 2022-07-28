@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Navbar from "./Navbar";
 import { useStateValue } from "../StateProvider";
-
+import Button from "./Button";
 function Orders() {
   const [{ user }] = useStateValue();
   const [orders, setOrders] = useState([]);
@@ -41,7 +41,7 @@ function Orders() {
                 <p>
                   Subtotal : ₹ <span>{order.price}</span>
                 </p>
-
+                <Button objid={order._id}/>
                 {order.products.map((product) => (
                   <Product>
                     <Image>
@@ -52,7 +52,9 @@ function Orders() {
 
                       <p>₹ {product.price}</p>
                     </Description>
+                    
                   </Product>
+                  
                   
                 ))}
               </OrderBasket>
