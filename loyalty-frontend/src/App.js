@@ -13,7 +13,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import AddProduct from "./Components/AddProduct";
 import Orders from "./Components/Orders";
-
+import DeliveryGuy from "./Components/DeliveryGuy";
 const promise = loadStripe(
   "pk_test_51KUDBXSE1AGsrDtwyXK8vcHYNkEOofJAP1vV1fRlpZNo93g4o80dZe4IvhAkBXo2ytDciCqqpynwQUXv7plCjezF00G9zyj4sc"
 );
@@ -40,7 +40,7 @@ function App() {
               </Elements>
             }
           />
-
+<Route path="/scanner" element={<DeliveryGuy />} />
           <Route path="/addproduct" element={<AddProduct />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/orders" element={<Orders />} />

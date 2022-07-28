@@ -1,0 +1,9 @@
+.qrcode{
+    width:30%;
+   
+
+}
+.scan{
+    display: flex;
+    justify-content: center;
+}
