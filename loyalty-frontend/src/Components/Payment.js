@@ -9,13 +9,12 @@ import Navbar from "./Navbar";
 import axios from "../axios";
 import { useNavigate } from "react-router-dom";
 
-function Payment() {
+const Payment=(props)=> {
   const [{ address, basket, user }, dispatch] = useStateValue();
   const [clientSecret, setClientSecret] = useState("");
   const elements = useElements();
   const stripe = useStripe();
-  const [lat,setlat]=useState(null);
-  const [long,setlong]=useState(null);
+  
   const navigate = useNavigate();
   useEffect(() => {
     const fetchClientSecret = async () => {
@@ -33,10 +32,7 @@ function Payment() {
   const confirmPayment = async (e) => {
     e.preventDefault();
     
-    await window.navigator.geolocation.getCurrentPosition((position)=>{
-    setlat(position.coords.latitude);
-    setlong(position.coords.longitude);
-    })
+    
     await stripe
       .confirmCardPayment(clientSecret, {
         payment_method: {
@@ -49,8 +45,8 @@ function Payment() {
           price: getBasketTotal(basket),
           email: user?.email,
           address: address,
-          latitude:lat,
-          longitude:long
+          latitude:props.lat,
+          longitude:props.long
         });
 
         dispatch({

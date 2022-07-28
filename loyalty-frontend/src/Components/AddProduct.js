@@ -1,25 +1,33 @@
 import axios from "../axios";
 import React, { useState } from "react";
 import styled from "styled-components";
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 function AddProduct() {
   const [title, setTitle] = useState("");
   const [imageURL, setImageURL] = useState("");
   const [price, setPrice] = useState(0);
   const [rating, setRating] = useState(0);
+const options=[
+'fashion','sports','grocery'
+];
 
+const [category,setCategory]=useState(options[0]);
   const addProduct = (e) => {
     e.preventDefault();
-
+    console.log(category);
     axios
-      .post("/products/add", { title, imageURL, price, rating })
+      .post("/products/add", { title, imageURL, price, category, rating })
       .then(() => {
         setTitle("");
         setImageURL("");
         setPrice(0);
         setRating(0);
+        setCategory(options[0])
       })
       .catch((error) => alert(error.message));
   };
+  
   return (
     <Container>
       <Logo>
@@ -61,12 +69,18 @@ function AddProduct() {
             value={rating}
           />
         </InputContainer>
+        <p>Category</p>
+        <Dropdown options={options} onChange={(e)=>setCategory(e.value)} value={category} placeholder="Select an option" />
+        <InputContainer>
 
+        </InputContainer>
         <Button onClick={addProduct}>Add Product</Button>
       </FormContainer>
     </Container>
   );
+ 
 }
+
 
 const Container = styled.div`
   width: 40%;
