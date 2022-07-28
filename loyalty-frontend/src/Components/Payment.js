@@ -14,7 +14,8 @@ function Payment() {
   const [clientSecret, setClientSecret] = useState("");
   const elements = useElements();
   const stripe = useStripe();
-
+  const [lat,setlat]=useState(null);
+  const [long,setlong]=useState(null);
   const navigate = useNavigate();
   useEffect(() => {
     const fetchClientSecret = async () => {
@@ -31,7 +32,11 @@ function Payment() {
 
   const confirmPayment = async (e) => {
     e.preventDefault();
-
+    
+    await window.navigator.geolocation.getCurrentPosition((position)=>{
+    setlat(position.coords.latitude);
+    setlong(position.coords.longitude);
+    })
     await stripe
       .confirmCardPayment(clientSecret, {
         payment_method: {
@@ -44,6 +49,8 @@ function Payment() {
           price: getBasketTotal(basket),
           email: user?.email,
           address: address,
+          latitude:lat,
+          longitude:long
         });
 
         dispatch({
@@ -52,6 +59,9 @@ function Payment() {
         navigate("/");
       })
       .catch((err) => console.warn(err));
+
+
+      
   };
 
   return (
