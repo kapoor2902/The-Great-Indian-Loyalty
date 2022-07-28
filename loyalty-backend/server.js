@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+const DeliveryGuy = require("./DeliveryGuy");
 const Products = require("./Products");
 const Users = require("./Users");
 const Orders = require("./Orders");
