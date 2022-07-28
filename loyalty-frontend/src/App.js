@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect,useState} from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 import Address from "./Components/Address";
@@ -20,8 +20,23 @@ const promise = loadStripe(
 
 
 function App() {
+  const [lat,setlat]=useState(null);
+  const [long,setlong]=useState(null);
+ 
+useEffect(()=>{
 
-  
+  const locate= async()=>{
+  await window.navigator.geolocation.getCurrentPosition((position)=>{
+    setlat(position.coords.latitude);
+    setlong(position.coords.longitude);
+    })
+   
+  }
+  locate();
+
+},[]);
+console.log(lat);
+console.log(long)
   return (
     <Router>
       <Container>
@@ -31,12 +46,12 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/address" element={<Address />} />
+          <Route path="/address" element={<Address lat={lat} long={long} />} />
           <Route
             path="/payment"
             element={
               <Elements stripe={promise}>
-                <Payment />
+                <Payment  lat={lat} long={long}  />
               </Elements>
             }
           />
