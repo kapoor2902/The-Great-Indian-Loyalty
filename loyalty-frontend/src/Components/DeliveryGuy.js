@@ -9,19 +9,16 @@ import axios from 'axios';
 
 
 const DeliveryGuy = (props) => {
-  const [id, setId] = useState('No result');
+  const [_id, setId] = useState('No result');
 
   useEffect(() => {
-
-    const api=async()=>{
-        const obj= await axios.post("/orders/details",{id:id});
-        console.log(obj);
-      }
-      api();
-
-  }, [id]); 
-
-  console.log(id);
+    const api=async ()=>{
+      const obj=await axios.get(`https://hackon-backend1.herokuapp.com/scanme/${_id}`);
+      console.log(obj);
+    }
+    api();
+  }, [_id]);
+  console.log(_id);
 
 
 
