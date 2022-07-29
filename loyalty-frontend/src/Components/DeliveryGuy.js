@@ -14,7 +14,7 @@ const DeliveryGuy = (props) => {
   useEffect(() => {
 
     const api=async()=>{
-        const obj= await axios.post(`localhost:5000/order/details`,{id:id});
+        const obj= await axios.post("/orders/details",{id:id});
         console.log(obj);
       }
       api();
