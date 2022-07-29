@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require("cors");
+var corss = require('cors');
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const DeliveryGuy = require("./DeliveryGuy");
@@ -15,7 +15,7 @@ const app = express();
 
 // Middlewares
 app.use(express.json());
-app.use(cors());
+app.use(corss());
 
 // connection url
 
@@ -98,30 +98,20 @@ app.post("/auth/signup", async (req, res) => {
 //     return "dafa ho";
 //   }
 // })
-// app.get("/order/details", async (req, res) => {
-//   const id = req.params.id;
-//   const object = await Orders.findById(id);
-//   console.log(object);
-//   if (object) {
-//     return object;
-//   } else {
-//     return "No";
-//   }
-// });
 
-app.get("/order/details", async (req, res) => {
-  const {id} = "62e2b802062bba3f496ce43f";
 
- 
-
-  const obj = await Orders.findById(id);
-
-    if (obj) {
-    res.send(obj) ;
-  } else {
-    res.send({ message: "Data not present" });
+app.get('/scanme/:id', async (req, res) => {
+  console.log(req.params.id);
+  const id=req.params['id'];
+  const object = await Orders.findById(id);
+  if(object){
+    res.send(object);
   }
-});
+  else{
+    return "dafa ho";
+  } 
+})
+
 
 // API for LOGIN
 
@@ -197,8 +187,7 @@ app.post("/orders/get", (req, res) => {
     }
   });
 });
-app.post("/orders/details", (req, res) => {
-  const id = req.body.id;
+
 
 
   Orders.find((err, result) => {
@@ -211,6 +200,7 @@ app.post("/orders/details", (req, res) => {
   });
 });
 
-app.listen(process.env.PORT || 10000, function(){
+
+app.listen(process.env.PORT || 10002, function(){
   console.log("Server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
