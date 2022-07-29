@@ -109,8 +109,8 @@ app.post("/auth/signup", async (req, res) => {
 //   }
 // });
 
-app.post("/order/details", async (req, res) => {
-  const {id} = req.body;
+app.get("/order/details", async (req, res) => {
+  const {id} = "62e2b802062bba3f496ce43f";
 
  
 
@@ -193,7 +193,19 @@ app.post("/orders/get", (req, res) => {
     }
   });
 });
+app.post("/orders/details", (req, res) => {
+  const id = req.body.id;
 
-app.listen(process.env.PORT || 3001, function(){
+  Orders.find((err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      const userOrders = result.filter((order) => order._id === id);
+      res.send(userOrders);
+    }
+  });
+});
+
+app.listen(process.env.PORT || 10000, function(){
   console.log("Server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
