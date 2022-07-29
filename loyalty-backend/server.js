@@ -11,7 +11,7 @@ const stripe = require("stripe")(
 );
 
 const app = express();
-const port = 8000;
+// const port = 8000;
 
 // Middlewares
 app.use(express.json());
@@ -82,6 +82,44 @@ app.post("/auth/signup", async (req, res) => {
         res.send({ message: "User Created Succesfully" });
       }
     });
+  }
+});
+
+// app.post("/lol", async(req, res) => {
+//   const {id} = req.body;
+//   console.log(req.body);
+//   // get object using id
+//   const object = await Orders.findById(id);
+//   await object.save();
+//   console.log("Object : ",object);
+//   if(object){
+//     return object
+//   }else{
+//     return "dafa ho";
+//   }
+// })
+// app.get("/order/details", async (req, res) => {
+//   const id = req.params.id;
+//   const object = await Orders.findById(id);
+//   console.log(object);
+//   if (object) {
+//     return object;
+//   } else {
+//     return "No";
+//   }
+// });
+
+app.post("/order/details", async (req, res) => {
+  const {id} = req.body;
+
+ 
+
+  const obj = await Orders.findById(id);
+
+    if (obj) {
+    res.send(obj) ;
+  } else {
+    res.send({ message: "Data not present" });
   }
 });
 
@@ -156,4 +194,6 @@ app.post("/orders/get", (req, res) => {
   });
 });
 
-app.listen(port, () => console.log("listening on the port", port));
+app.listen(process.env.PORT || 3001, function(){
+  console.log("Server listening on port %d in %s mode", this.address().port, app.settings.env);
+});

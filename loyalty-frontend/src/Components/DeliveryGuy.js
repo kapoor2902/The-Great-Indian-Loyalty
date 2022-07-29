@@ -1,18 +1,27 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {QrReader} from 'react-qr-reader';
 import '../css/DeliveryGuy.css'
+import axios from 'axios';
 
 
 
 
 
 const DeliveryGuy = (props) => {
-  const [data, setData] = useState('No result');
+  const [id, setId] = useState('No result');
 
+  useEffect(() => {
 
-  
+    const api=async()=>{
+        const obj= await axios.post(`localhost:5000/order/details`,{id:id});
+        console.log(obj);
+      }
+      api();
 
+  }, [id]); 
+
+  console.log(id);
 
 
 
@@ -26,8 +35,9 @@ const DeliveryGuy = (props) => {
   <div className='scanme'>
   <QrReader
         onResult={(result, error) => {
+
           if (!!result) {
-            setData(result?.text);
+            setId(result?.text);
           }if (!!error) {
             console.info(error);
           }
@@ -36,7 +46,7 @@ const DeliveryGuy = (props) => {
        
       />
   </div>
-  <p>{data}</p>
+
    
     
       
