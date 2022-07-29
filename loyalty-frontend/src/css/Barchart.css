@@ -1,26 +1,29 @@
-.charts{
-    display: grid;
-   
-   
+.charts {
+    align-items: center;
 }
-@media screen and (min-width:626px) {
-    .charts{
-        display: grid;
-        width: 30%;
-       justify-items: center
-    } 
-  
-}
-.charts{
-    border-left: 1px solid black;
-   height: 92.5vh;
 
+@media screen and (min-width:626px) {
+    .charts {
+        display: grid;
+        justify-items: center;
+        justify-content: center;
+    }
 }
-h1{
+
+.charts {
+    height: 92.5vh;
+    border-top: 2px solid black;
+    justify-items: center;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
     display: flex;
     justify-content: center;
 }
-.ch{
+
+.ch {
     display: flex;
     width: 50%;
 }
