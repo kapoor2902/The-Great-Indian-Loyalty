@@ -169,15 +169,14 @@ const Description = styled.div`
   }
 
   button {
-    background-color: transparent;
-    color: #1384b4;
+    width: 10%;
+    height: 33px;
+    margin-top: 20px;
+    margin-bottom:10px;
+    background-color: #ffd814;
     border: none;
     outline: none;
-    margin-top: 10px;
-    cursor: pointer;
-    &:hover {
-      text-decoration: underline;
-    }
+    border-radius: 8px;
   }
 `;
 export default Checkout;
