@@ -33,15 +33,15 @@ app.get("/", (req, res) => res.status(200).send("Home Page"));
 
 app.post("/deliveryguy", async (req, res) => {
   const Delivery = req.body;
- console.log(Delivery);
- DeliveryGuy.create(Delivery,(err,delivery)=>{
-   if(err){
-    res.status(500).send(err.message);
-    console.log(err);
-  } else {
-    res.status(201).send(delivery);
-  }
-});
+  console.log(Delivery);
+  DeliveryGuy.create(Delivery, (err, delivery) => {
+    if (err) {
+      res.status(500).send(err.message);
+      console.log(err);
+    } else {
+      res.status(201).send(delivery);
+    }
+  });
 });
 
 app.put("/deliveryguy/:id", async (req, res) => {
@@ -54,9 +54,7 @@ app.put("/deliveryguy/:id", async (req, res) => {
       res.status(200).send(delivery);
     }
   });
-}
-);
-
+});
 
 // add product
 
@@ -113,20 +111,16 @@ app.post("/auth/signup", async (req, res) => {
   }
 });
 
-
-
-app.get('/scanme/:id', async (req, res) => {
+app.get("/scanme/:id", async (req, res) => {
   console.log(req.params.id);
-  const id=req.params['id'];
+  const id = req.params["id"];
   const object = await Orders.findById(id);
-  if(object){
+  if (object) {
     res.send(object);
-  }
-  else{
+  } else {
     return "dafa ho";
-  } 
-})
-
+  }
+});
 
 // API for LOGIN
 
@@ -199,8 +193,10 @@ app.post("/orders/get", (req, res) => {
   });
 });
 
-
-
-app.listen(process.env.PORT || 10002, function(){
-  console.log("Server listening on port %d in %s mode", this.address().port, app.settings.env);
+app.listen(process.env.PORT || 10002, function () {
+  console.log(
+    "Server listening on port %d in %s mode",
+    this.address().port,
+    app.settings.env
+  );
 });
