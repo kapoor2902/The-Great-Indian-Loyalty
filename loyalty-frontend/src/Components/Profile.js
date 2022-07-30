@@ -6,7 +6,7 @@ import axios from "../axios";
 import Navbar from "./Navbar";
 import { UserData } from "./Data";
 import Progress from "./Progress";
-
+import { UserData1 } from "./Data2";
 import "../css/Profile.css";
 
 
@@ -23,6 +23,16 @@ const Profile = () => {
       {
         label: "User Gained",
         data: UserData.map((dat) => dat.userGain),
+        backgroundColor: ["#2d3d53", "#fcaf17"],
+      },
+    ],
+  });
+  const [userData2, setuserData2] = useState({
+    labels: UserData1.map((dat) => dat.year),
+    datasets: [
+      {
+        label: "User Gained",
+        data: UserData1.map((dat) => dat.userGain),
         backgroundColor: ["#2d3d53", "#fcaf17"],
       },
     ],
@@ -69,7 +79,7 @@ const req=100000-total;
         </div>
     <React.Fragment>
   
-    <BarChart chartData={userData} />
+    <BarChart chartData={userData} chartData2={userData2} />
     </React.Fragment>
       
         
