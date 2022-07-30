@@ -5,3 +5,28 @@
   display: flex;
   justify-content: center;
 }
+
+.scan{
+    display: flex;
+    justify-content: center;
+}
+
+div{
+padding-left:10px;
+font-weight: bold;
+}
+
+
+  .Buon{
+    height: 33px;
+    margin-top: 20px;
+    margin-bottom:10px;
+    background-color: #ffd814;
+    margin-left: 10px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    font-weight:bold ;
+  }
+
