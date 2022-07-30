@@ -15,12 +15,7 @@ const app = express();
 
 // Middlewares
 app.use(express.json());
-const corsOptions ={
-  origin:'http://localhost:3000/', 
-  credentials:true,            //access-control-allow-credentials:true
-  optionSuccessStatus:200
-}
-app.use(cors(corsOptions));
+app.use(cors());
 // connection url
 
 const connection_url =
@@ -33,6 +28,35 @@ mongoose.connect(connection_url, {
 // API
 
 app.get("/", (req, res) => res.status(200).send("Home Page"));
+
+//delivery guy
+
+app.post("/deliveryguy", async (req, res) => {
+  const Delivery = req.body;
+ console.log(Delivery);
+ DeliveryGuy.create(Delivery,(err,delivery)=>{
+   if(err){
+    res.status(500).send(err.message);
+    console.log(err);
+  } else {
+    res.status(201).send(delivery);
+  }
+});
+});
+
+app.put("/deliveryguy/:id", async (req, res) => {
+  const id = req.params.id;
+  const Delivery = req.body;
+  DeliveryGuy.findByIdAndUpdate(id, Delivery, (err, delivery) => {
+    if (err) {
+      res.status(500).send(err.message);
+    } else {
+      res.status(200).send(delivery);
+    }
+  });
+}
+);
+
 
 // add product
 
@@ -89,19 +113,6 @@ app.post("/auth/signup", async (req, res) => {
   }
 });
 
-// app.post("/lol", async(req, res) => {
-//   const {id} = req.body;
-//   console.log(req.body);
-//   // get object using id
-//   const object = await Orders.findById(id);
-//   await object.save();
-//   console.log("Object : ",object);
-//   if(object){
-//     return object
-//   }else{
-//     return "dafa ho";
-//   }
-// })
 
 
 app.get('/scanme/:id', async (req, res) => {
