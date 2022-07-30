@@ -1,5 +1,5 @@
 const express = require("express");
-var corss = require('cors');
+var cors = require('cors');
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const DeliveryGuy = require("./DeliveryGuy");
@@ -15,7 +15,7 @@ const app = express();
 
 // Middlewares
 app.use(express.json());
-app.use(corss());
+app.use(cors());
 
 // connection url
 
