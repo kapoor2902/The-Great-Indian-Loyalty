@@ -9,12 +9,12 @@ import Navbar from "./Navbar";
 import axios from "../axios";
 import { useNavigate } from "react-router-dom";
 
-const Payment=(props)=> {
+const Payment = (props) => {
   const [{ address, basket, user }, dispatch] = useStateValue();
   const [clientSecret, setClientSecret] = useState("");
   const elements = useElements();
   const stripe = useStripe();
-  
+
   const navigate = useNavigate();
   useEffect(() => {
     const fetchClientSecret = async () => {
@@ -28,11 +28,10 @@ const Payment=(props)=> {
     fetchClientSecret();
     console.log("clientSecret is >>>>", clientSecret);
   }, []);
-console.log(props.lat);
+  console.log(props.lat);
   const confirmPayment = async (e) => {
     e.preventDefault();
-    
-    
+
     await stripe
       .confirmCardPayment(clientSecret, {
         payment_method: {
@@ -53,9 +52,6 @@ console.log(props.lat);
         navigate("/");
       })
       .catch((err) => console.warn(err));
-
-
-      
   };
 
   return (
@@ -134,7 +130,7 @@ console.log(props.lat);
       </Main>
     </Container>
   );
-}
+};
 
 const Container = styled.div`
   width: 100%;

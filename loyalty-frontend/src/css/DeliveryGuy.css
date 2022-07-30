@@ -1,8 +1,11 @@
-.qrcode{
-    width:30%;
-   
-
+.qrcode {
+  width: 30%;
 }
+.scan {
+  display: flex;
+  justify-content: center;
+}
+
 .scan{
     display: flex;
     justify-content: center;
@@ -26,3 +29,4 @@ font-weight: bold;
     border-radius: 8px;
     font-weight:bold ;
   }
+

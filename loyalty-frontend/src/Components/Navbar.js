@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useStateValue } from "../StateProvider";
 
-function Navbar({email}) {
+function Navbar({ email }) {
   const [{ basket, user }, dispatch] = useStateValue();
   const navigate = useNavigate();
 
@@ -16,45 +16,8 @@ function Navbar({email}) {
     localStorage.removeItem("user");
     navigate("/");
   };
-  if(window.location.pathname==="/profile")
-  email(user);
-  if(user===null){
-  return (
-    <Container>
-      <Inner>
-        <Logo onClick={() => navigate("/")}>
-          <img src="./amazon_logo1.png" alt="" />
-        </Logo>
-        <SearchBar>
-          <input type="text" placeholder="Search..." />
-          <SearchIcon onClick={() => navigate("/addproduct")}>
-            <img src="./searchIcon.png" alt="" />
-          </SearchIcon>
-        </SearchBar>
-        <RightContainer>
-          <NavButton
-            onClick={ () => navigate("/login")}
-          >
-            <p><b>Login</b></p>
-            
-          </NavButton>
-        
-          <BasketButton onClick={() => navigate("/checkout")}>
-            <img src="./basket-icon.png" alt="" />
-            <p>{basket?.length}</p>
-          </BasketButton>
-        </RightContainer>
-      </Inner>
-      <MobileSearchbar>
-        <input type="text" placeholder="Search..." />
-        <SearchIcon onClick={() => navigate("/addproduct")}>
-          <img src="./searchIcon.png" alt="" />
-        </SearchIcon>
-      </MobileSearchbar>
-    </Container>
-  );
-  }
-  else{
+  if (window.location.pathname === "/profile") email(user);
+  if (user === null) {
     return (
       <Container>
         <Inner>
@@ -68,9 +31,43 @@ function Navbar({email}) {
             </SearchIcon>
           </SearchBar>
           <RightContainer>
-            <NavButton
-              // onClick={() => signOut()}
-            >
+            <NavButton onClick={() => navigate("/login")}>
+              <p>
+                <b>Login</b>
+              </p>
+            </NavButton>
+
+            <BasketButton onClick={() => navigate("/checkout")}>
+              <img src="./basket-icon.png" alt="" />
+              <p>{basket?.length}</p>
+            </BasketButton>
+          </RightContainer>
+        </Inner>
+        <MobileSearchbar>
+          <input type="text" placeholder="Search..." />
+          <SearchIcon onClick={() => navigate("/addproduct")}>
+            <img src="./searchIcon.png" alt="" />
+          </SearchIcon>
+        </MobileSearchbar>
+      </Container>
+    );
+  } else {
+    return (
+      <Container>
+        <Inner>
+          <Logo onClick={() => navigate("/")}>
+            <img src="./amazon_logo1.png" alt="" />
+          </Logo>
+          <SearchBar>
+            <input type="text" placeholder="Search..." />
+            <SearchIcon onClick={() => navigate("/addproduct")}>
+              <img src="./searchIcon.png" alt="" />
+            </SearchIcon>
+          </SearchBar>
+          <RightContainer>
+
+            <NavButton onClick={() => signOut()}>
+
               <p>Hello,</p>
               <p>{user ? user?.fullName : "Guest"}</p>
             </NavButton>
@@ -79,7 +76,7 @@ function Navbar({email}) {
               <p>& Orders</p>
             </NavButton>
             <NavButton onClick={() => navigate("/profile")}>
-            <p>Your Profile</p>
+              <p>Your Profile</p>
             </NavButton>
             <BasketButton onClick={() => navigate("/checkout")}>
               <img src="./basket-icon.png" alt="" />
@@ -94,9 +91,8 @@ function Navbar({email}) {
           </SearchIcon>
         </MobileSearchbar>
       </Container>
-    ); 
+    );
   }
-
 }
 
 const Container = styled.div`
