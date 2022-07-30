@@ -18,6 +18,7 @@
 }
 
 h1 {
+    padding-left: 10%;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -25,5 +26,6 @@ h1 {
 
 .ch {
     display: flex;
+    padding-right: 50%;
     width: 50%;
 }

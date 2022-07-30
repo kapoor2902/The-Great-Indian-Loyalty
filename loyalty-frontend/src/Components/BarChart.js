@@ -10,7 +10,7 @@ const BarChart = ({ chartData }) => {
       <h1>User Analytics</h1>
   <div className="ch">
   <Pie data={chartData} />
-        <Bar data={chartData} style={{ height: "40%", width: "19%" }} />
+        <Bar data={chartData} style={{ height: "500px", width: "500px" }} />
   </div>
       
     
