@@ -41,8 +41,12 @@ function Orders() {
                 <p>
                   Subtotal : ₹ <span>{order.price}</span>
                 </p>
+                <div>
                 <Button objid={order._id} />
-
+                <button >Status</button>
+                </div>
+               
+                
                 {order.products.map((product) => (
                   <Product>
                     <Image>
