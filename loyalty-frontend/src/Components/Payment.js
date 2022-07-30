@@ -45,8 +45,6 @@ console.log(props.lat);
           price: getBasketTotal(basket),
           email: user?.email,
           address: address,
-          latitude:props.lat,
-          longitude:props.long
         });
 
         dispatch({

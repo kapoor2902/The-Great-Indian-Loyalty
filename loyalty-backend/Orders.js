@@ -7,7 +7,6 @@ const OrderSchema = mongoose.Schema({
   address: Object,
   latitude: Number,
   longitude: Number,
-  isOutForDelivery: Boolean, default:false,
 });
 
 module.exports = mongoose.model("orders", OrderSchema);
