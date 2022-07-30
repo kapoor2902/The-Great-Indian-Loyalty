@@ -2,18 +2,11 @@ import React, { useState, useEffect } from "react";
 import BarChart from "./BarChart";
 import axios from "../axios";
 
-
 import Navbar from "./Navbar";
 import { UserData } from "./Data";
 import Progress from "./Progress";
 import { UserData1 } from "./Data2";
 import "../css/Profile.css";
-
-
-
-
-
-
 
 const Profile = () => {
   //states defined
@@ -40,7 +33,7 @@ const Profile = () => {
   const [orders, setOrders] = useState([]);
   const [username, setusername] = useState("");
   const [userval, setUserval] = useState();
-  
+
   //UseEffect
   useEffect(() => {
     axios
@@ -56,16 +49,16 @@ const Profile = () => {
 
   //Calculating to total sum of orders
   const arr = orders;
-  const price=arr.map(a=>a.price);
-  var total=0;
-  for(var i=0;i<price.length;i++){
-    total+=price[i];
+  const price = arr.map((a) => a.price);
+  var total = 0;
+  for (var i = 0; i < price.length; i++) {
+    total += price[i];
     console.log(price[i]);
   }
 
-//Calculating the percentage of progress
-const percent=(total/1000)
-const req=100000-total;
+  //Calculating the percentage of progress
+  const percent = total / 1000;
+  const req = 100000 - total;
   //Return Function for profile page
   return (
     <React.Fragment>
@@ -74,17 +67,12 @@ const req=100000-total;
         <div className="profile details">
           <h3 className="user">Name: {username}</h3>
           <h3 className="total">Total: ₹{total}/-</h3>
-          <Progress value={percent} className="progress"/>
+          <Progress value={percent} className="progress" />
           <p>Shop for ₹{req} more and get a prime membership free </p>
         </div>
-    <React.Fragment>
-  
-    <BarChart chartData={userData} chartData2={userData2} />
-    </React.Fragment>
-      
-        
-      
-        
+        <React.Fragment>
+          <BarChart chartData={userData} chartData2={userData2} />
+        </React.Fragment>
       </div>
     </React.Fragment>
   );
