@@ -12,23 +12,39 @@ function Address() {
   const [landmark, setLandmark] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
-
+  
   const navigate = useNavigate();
 
   const deliver = (e) => {
     e.preventDefault();
+    const finaladdress = area + " " + city + " " + state;
+    console.log(finaladdress);
+    const axios = require('axios');
+    const params = {
+      access_key: '5c80365848117ff16fd1729fa6f60484',
+      query: finaladdress,
+    }
+    
+    axios.get('http://api.positionstack.com/v1/forward', {params})
+      .then(response => {
+        dispatch({
+          type: "SET_ADDRESS",
+          item: {
+            fullName,
+            phone,
+            flat,
+            area,
+            city,
+            state,
+            latitude: response.data.data[0].latitude,
+            longitude: response.data.data[0].longitude,
+          },
+        });
+      }).catch(error => {
+        console.log(error);
+      });
 
-    dispatch({
-      type: "SET_ADDRESS",
-      item: {
-        fullName,
-        phone,
-        flat,
-        area,
-        city,
-        state,
-      },
-    });
+    
 
     navigate("/payment");
   };
@@ -76,7 +92,7 @@ function Address() {
             <input
               type="text"
               onChange={(e) => setLandmark(e.target.value)}
-              value={landmark}
+              value={landmark}x
             />
           </InputContainer>
           <InputContainer>
