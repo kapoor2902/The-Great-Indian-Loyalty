@@ -22,6 +22,8 @@ const DeliveryGuy = (props) => {
     } else {
       console.log("waiting for id");
     }
+
+
   }, [_id]);
   console.log(_id);
   
@@ -50,10 +52,11 @@ const DeliveryGuy = (props) => {
     return(
       <React.Fragment>
         <h1>Order Details</h1>
-        <h3>Name:{dat.address.fullName}</h3>
-        <h3>Phone Number:{dat.address.phone}</h3>
-        <h3>Address:</h3>
+        <p>Name:{dat.address.fullName}</p>
+        <p>Phone Number:{dat.address.phone}</p>
+        <p>Address:</p>
         <p>{dat.address.flat} <br/> {dat.address.area} <br/>{dat.address.city} <br/>{dat.address.state} <br/></p>
+        <button>Click Me!</button>
       </React.Fragment>
       
     );
