@@ -1,9 +1,7 @@
-.qrcode{
-    width:30%;
-   
-
+.qrcode {
+  width: 30%;
 }
-.scan{
-    display: flex;
-    justify-content: center;
+.scan {
+  display: flex;
+  justify-content: center;
 }

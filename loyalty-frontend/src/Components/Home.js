@@ -7,7 +7,7 @@ import Navbar from "./Navbar";
 
 function Home() {
   const [products, setProducts] = useState("");
-  
+
   useEffect(() => {
     const fetchdata = async () => {
       const data = await axios.get("/products/get");
@@ -16,8 +16,6 @@ function Home() {
     };
     fetchdata();
   }, []);
-
-  
 
   return (
     <Container>

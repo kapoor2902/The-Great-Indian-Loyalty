@@ -12,7 +12,7 @@ function Orders() {
       .post("/orders/get", { email: user.email })
       .then((res) => setOrders(res.data));
   }, []);
- 
+
   return (
     <Container>
       <Navbar />
@@ -41,9 +41,8 @@ function Orders() {
                 <p>
                   Subtotal : ₹ <span>{order.price}</span>
                 </p>
-              <Button objid={order._id}/>
-              
-            
+                <Button objid={order._id} />
+
                 {order.products.map((product) => (
                   <Product>
                     <Image>
@@ -54,10 +53,7 @@ function Orders() {
 
                       <p>₹ {product.price}</p>
                     </Description>
-                    
                   </Product>
-                  
-                  
                 ))}
               </OrderBasket>
             </OrderDetail>
@@ -112,7 +108,6 @@ const AddressComponent = styled.div`
     p {
       font-size: 14px;
       margin-top: 4px;
-
     }
   }
 `;
@@ -124,23 +119,21 @@ const OrderBasket = styled.div`
     font-size: 15px;
     margin-left: 15px;
     margin-top: 15px;
-    
 
     span {
       font-weight: 600;
     }
   }
-  button{
+  button {
     width: 10%;
     height: 33px;
     margin-top: 20px;
-    margin-bottom:10px;
+    margin-bottom: 10px;
     background-color: #ffd814;
     border: none;
     outline: none;
     border-radius: 8px;
   }
-  
 `;
 
 const Product = styled.div`
