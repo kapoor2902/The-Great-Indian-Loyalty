@@ -1,5 +1,5 @@
 const express = require("express");
-var cors = require('cors');
+const cors = require("cors");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const DeliveryGuy = require("./DeliveryGuy");
@@ -15,8 +15,12 @@ const app = express();
 
 // Middlewares
 app.use(express.json());
-app.use(cors());
-
+const corsOptions ={
+  origin:'http://localhost:3000/', 
+  credentials:true,            //access-control-allow-credentials:true
+  optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
 // connection url
 
 const connection_url =
@@ -154,16 +158,12 @@ app.post("/orders/add", (req, res) => {
   const price = req.body.price;
   const email = req.body.email;
   const address = req.body.address;
-  const latitude = req.body.latitude;
-  const longitude = req.body.longitude;
 
   const orderDetail = {
     products: products,
     price: price,
     address: address,
     email: email,
-    latitude: latitude,
-    longitude: longitude,
   };
 
   Orders.create(orderDetail, (err, result) => {
@@ -183,18 +183,6 @@ app.post("/orders/get", (req, res) => {
       console.log(err);
     } else {
       const userOrders = result.filter((order) => order.email === email);
-      res.send(userOrders);
-    }
-  });
-});
-
-
-
-  Orders.find((err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      const userOrders = result.filter((order) => order._id === id);
       res.send(userOrders);
     }
   });

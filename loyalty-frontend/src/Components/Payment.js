@@ -28,7 +28,7 @@ const Payment=(props)=> {
     fetchClientSecret();
     console.log("clientSecret is >>>>", clientSecret);
   }, []);
-
+console.log(props.lat);
   const confirmPayment = async (e) => {
     e.preventDefault();
     
