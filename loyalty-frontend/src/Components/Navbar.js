@@ -69,7 +69,7 @@ function Navbar({email}) {
           </SearchBar>
           <RightContainer>
             <NavButton
-              onClick={() => signOut()}
+              // onClick={() => signOut()}
             >
               <p>Hello,</p>
               <p>{user ? user?.fullName : "Guest"}</p>
