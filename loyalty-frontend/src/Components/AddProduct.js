@@ -8,7 +8,7 @@ function AddProduct() {
   const [imageURL, setImageURL] = useState("");
   const [price, setPrice] = useState(0);
   const [rating, setRating] = useState(0);
-  const options = ["fashion", "sports", "grocery"];
+  const options = ["Fashion", "Sports", "Grocery", "Electronics", "Books","Amazon products"];
 
   const [category, setCategory] = useState(options[0]);
   const addProduct = (e) => {
