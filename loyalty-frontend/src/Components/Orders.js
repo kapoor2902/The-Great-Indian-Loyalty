@@ -2,16 +2,20 @@ import axios from "../axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Navbar from "./Navbar";
+import { useNavigate } from "react-router-dom";
 import { useStateValue } from "../StateProvider";
 import Button from "./Button";
+import Stat from "./Stat";
 function Orders() {
   const [{ user }] = useStateValue();
+  const navigate = useNavigate();
   const [orders, setOrders] = useState([]);
   useEffect(() => {
     axios
       .post("/orders/get", { email: user.email })
       .then((res) => setOrders(res.data));
   }, []);
+
 
   return (
     <Container>
@@ -43,7 +47,7 @@ function Orders() {
                 </p>
                 <div>
                 <Button objid={order._id} />
-                <button >Status</button>
+                <Stat objid={order._id}/>
                 </div>
                
                 
