@@ -68,7 +68,7 @@ const Profile = () => {
           <h3 className="user">Name: {username}</h3>
           <h3 className="total">Total: ₹{total}/-</h3>
           <Progress value={percent} className="progress" />
-          <p>Shop for ₹{req} more and get a prime membership free. </p>
+          <p>Shop for ₹{req} more and get a prime membership free </p>
         </div>
         <React.Fragment>
           <BarChart chartData={userData} chartData2={userData2} />
