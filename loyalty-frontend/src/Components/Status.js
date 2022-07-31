@@ -6,11 +6,14 @@ import TimelineConnector from '@material-ui/lab/TimelineConnector';
 import TimelineContent from '@material-ui/lab/TimelineContent';
 import TimelineDot from '@material-ui/lab/TimelineDot';
 import '../css/Status.css';
+import App2 from "./App2";
 import axios from "axios";
 const Status = ({orderid}) => {
     const[data,setdata]=useState([]);
     const [lat,setlat]=useState(null);
     const [lng,setlng]=useState(null);
+    const [dlat,setdlat]=useState(null);
+    const [dlng,setdlng]=useState(null);
     const [order_id,setorder_id]=useState(orderid);
     useEffect(() => {
        
@@ -24,19 +27,22 @@ const Status = ({orderid}) => {
             setlng(data.address.longitude);
           };
           api();
-          const api2 = async () => {
-            const {data}=await axios.post("https://localhost:10002/status",{order_id:orderid});
-
-            
-            console.log(data);
-          }
-          api2();
-
+        const delivery=async()=>{
+          const {data}=await axios.get('https://hackon-backend1.herokuapp.com/status');
+          console.log(data);
+          setdlat(data.latitude);
+          setdlng(data.longitude);
+        }
+        delivery();
+        const delivery2=async()=>{
+          const {data}=await axios.post('https://hackon-backend1.herokuapp.com/status/uff',{order_id:orderid});
+          console.log(data);
+        }
+        delivery2();
         },[]);
     return (
         <React.Fragment>
-        <p>{lat}</p>
-        <p>{lng}</p>
+       
       
         <Timeline className="time">
         <TimelineItem>
@@ -60,6 +66,7 @@ const Status = ({orderid}) => {
           <TimelineContent>Sleep</TimelineContent>
         </TimelineItem>
       </Timeline>
+      <App2 olat={lat} olng={lng} dlat={dlat} dlng={dlng}/>
   </React.Fragment>
     );
     }
