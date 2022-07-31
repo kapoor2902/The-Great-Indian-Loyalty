@@ -50,20 +50,20 @@ const Status = ({orderid}) => {
             <TimelineDot />
             <TimelineConnector />
           </TimelineSeparator>
-          <TimelineContent>Eat</TimelineContent>
+          <TimelineContent>Ordered</TimelineContent>
         </TimelineItem>
         <TimelineItem>
           <TimelineSeparator>
             <TimelineDot />
             <TimelineConnector />
           </TimelineSeparator>
-          <TimelineContent>Code</TimelineContent>
+          <TimelineContent>Shipped</TimelineContent>
         </TimelineItem>
         <TimelineItem>
           <TimelineSeparator>
             <TimelineDot />
           </TimelineSeparator>
-          <TimelineContent>Sleep</TimelineContent>
+          <TimelineContent>Out for Delivery</TimelineContent>
         </TimelineItem>
       </Timeline>
       <App2 olat={lat} olng={lng} dlat={dlat} dlng={dlng}/>

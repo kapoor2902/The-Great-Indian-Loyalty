@@ -28,7 +28,6 @@ function Orders() {
             <OrderDetail>
               <AddressComponent>
                 <h4>Shipping Address</h4>
-
                 <div>
                   <p>{order.address.fullName}</p>
                   <p>{order.address.flat}</p>
@@ -47,12 +46,10 @@ function Orders() {
                 </p>
                 <div>
                 <Button objid={order._id} />
-
                 <Stat objid={order._id}/>
-
                 </div>
-               
-                
+              
+
                 {order.products.map((product) => (
                   <Product>
                     <Image>

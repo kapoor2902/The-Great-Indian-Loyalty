@@ -2,41 +2,41 @@ export const UserData1 = [
   {
     id: 1,
     year: "January",
-    userGain: 8000,
+    userGain: 0,
   },
   {
     id: 2,
     year: "February",
-    userGain: 4567,
+    userGain: 0,
   },
   {
     id: 3,
     year: "March",
-    userGain: 1888,
+    userGain: 0,
   },
   {
     id: 4,
     year: "April",
-    userGain: 6059,
+    userGain: 0,
   },
   {
     id: 5,
     year: "May",
-    userGain: 5059,
+    userGain: 0,
   },
   {
     id: 6,
     year: "June",
-    userGain: 2049,
+    userGain: 0,
   },
   {
     id: 7,
     year: "July",
-    userGain: 9059,
+    userGain: 0,
   },
   {
     id: 8,
     year: "August",
-    userGain: 4359,
+    userGain: 150000,
   },
 ];

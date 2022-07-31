@@ -14,9 +14,9 @@ const Profile = () => {
     labels: UserData.map((dat) => dat.year),
     datasets: [
       {
-        label: "User Gained",
+        label: "Monthly Expense",
         data: UserData.map((dat) => dat.userGain),
-        backgroundColor: ["#2d3d53", "#fcaf17"],
+        backgroundColor: ["#2d3d53", "#fcaf17","purple","brown","grey","black"],
       },
     ],
   });
@@ -24,7 +24,7 @@ const Profile = () => {
     labels: UserData1.map((dat) => dat.year),
     datasets: [
       {
-        label: "User Gained",
+        label: "Monthly Expense",
         data: UserData1.map((dat) => dat.userGain),
         backgroundColor: ["#2d3d53", "#fcaf17"],
       },
@@ -103,7 +103,7 @@ const req=limit-total;
           <h3 className="user">Name: {username}</h3>
           <h3 className="total">Total: ₹{total}/-</h3>
           <Progress value={percent} className="progress" />
-          <p>Shop for ₹{req} more and get a prime membership free </p>
+          <p>Shop for ₹{req} more and get PRIME MEMBERSHIP free!!</p>
         </div>
         <React.Fragment>
           <BarChart chartData={userData} chartData2={userData2} />

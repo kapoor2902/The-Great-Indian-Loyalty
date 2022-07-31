@@ -66,7 +66,7 @@ function Navbar({ email }) {
           </SearchBar>
           <RightContainer>
 
-            <NavButton onClick={() => signOut()}>
+          <NavButton >
 
               <p>Hello,</p>
               <p>{user ? user?.fullName : "Guest"}</p>
@@ -80,8 +80,12 @@ function Navbar({ email }) {
             </NavButton>
             <BasketButton onClick={() => navigate("/checkout")}>
               <img src="./basket-icon.png" alt="" />
-              <p>{basket?.length}</p>
+              <p>{basket?.length}  </p>
             </BasketButton>
+            <NavButton onClick={() => signOut()}>
+              <p>   Sign Out</p>
+              </NavButton>
+
           </RightContainer>
         </Inner>
         <MobileSearchbar>
