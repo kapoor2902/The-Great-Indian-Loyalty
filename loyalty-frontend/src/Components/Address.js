@@ -26,7 +26,7 @@ function Address() {
     };
 
     axios
-      .get("https://api.positionstack.com/v1/forward", { params })
+      .get("http://api.positionstack.com/v1/forward", { params })
       .then((response) => {
         dispatch({
           type: "SET_ADDRESS",
