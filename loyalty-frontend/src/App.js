@@ -14,7 +14,6 @@ import { loadStripe } from "@stripe/stripe-js";
 import AddProduct from "./Components/AddProduct";
 import Orders from "./Components/Orders";
 import DeliveryGuy from "./Components/DeliveryGuy";
-import Status from "./Components/Status";
 const promise = loadStripe(
   "pk_test_51KUDBXSE1AGsrDtwyXK8vcHYNkEOofJAP1vV1fRlpZNo93g4o80dZe4IvhAkBXo2ytDciCqqpynwQUXv7plCjezF00G9zyj4sc"
 );
@@ -39,7 +38,7 @@ function App() {
       <Container>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/status" element={<Status />} />
+
           <Route path="/login" element={<Login />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/signup" element={<SignUp />} />
