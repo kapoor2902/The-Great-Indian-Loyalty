@@ -28,7 +28,7 @@ function Orders() {
           {orders.map((order) => (
             <OrderDetail className="product">
               <AddressComponent>
-                <h4>Shipping Address</h4>
+                <h4>Shipping Address:</h4>
                 <div>
                   <p>{order.address.fullName}</p>
                   <p>{order.address.flat}</p>
