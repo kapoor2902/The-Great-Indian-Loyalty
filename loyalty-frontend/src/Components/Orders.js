@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useStateValue } from "../StateProvider";
 import Button from "./Button";
 import Stat from "./Stat";
+
 function Orders() {
   const [{ user }] = useStateValue();
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ function Orders() {
           <h2>Your Orders</h2>
 
           {orders.map((order) => (
-            <OrderDetail>
+            <OrderDetail className="product">
               <AddressComponent>
                 <h4>Shipping Address</h4>
                 <div>

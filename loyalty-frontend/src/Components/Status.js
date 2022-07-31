@@ -42,9 +42,9 @@ const Status = ({orderid}) => {
         },[]);
     return (
         <React.Fragment>
-       
-      
-        <Timeline className="time">
+       <div className="mapdiv">
+       <div>
+      <Timeline className="time">
         <TimelineItem>
           <TimelineSeparator>
             <TimelineDot />
@@ -66,7 +66,13 @@ const Status = ({orderid}) => {
           <TimelineContent>Out for Delivery</TimelineContent>
         </TimelineItem>
       </Timeline>
-      <App2 olat={lat} olng={lng} dlat={dlat} dlng={dlng}/>
+      </div>
+     <div>
+     <App2 olat={lat} olng={lng} dlat={dlat} dlng={dlng} className="map"/>
+     </div>
+       </div>
+  
+   
   </React.Fragment>
     );
     }
