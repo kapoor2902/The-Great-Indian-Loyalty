@@ -11,6 +11,7 @@ const Status = ({orderid}) => {
     const[data,setdata]=useState([]);
     const [lat,setlat]=useState(null);
     const [lng,setlng]=useState(null);
+    const [order_id,setorder_id]=useState(orderid);
     useEffect(() => {
        
           const api = async () => {
@@ -23,7 +24,14 @@ const Status = ({orderid}) => {
             setlng(data.address.longitude);
           };
           api();
-          
+          const api2 = async () => {
+            const {data}=await axios.post("https://localhost:10002/status",{order_id:orderid});
+
+            
+            console.log(data);
+          }
+          api2();
+
         },[]);
     return (
         <React.Fragment>

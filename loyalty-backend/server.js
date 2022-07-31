@@ -56,6 +56,18 @@ app.put("/deliveryguy/:id", async (req, res) => {
   });
 });
 
+//status page api
+app.get("/status",async(req,res)=>{
+  const order_id = "62e3a666c5cff8a06fffc7ed";
+  const obj=await DeliveryGuy.findOne({order_id:order_id})
+  if(obj){
+    res.status(200).send(obj)
+  }
+  else{
+    res.status(404).send("Not found")
+  }
+})
+
 // add product
 
 app.post("/products/add", (req, res) => {
