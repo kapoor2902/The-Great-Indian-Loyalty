@@ -99,6 +99,7 @@ function Navbar({ email }) {
   }
 }
 
+
 const Container = styled.div`
   width: 100%;
   height: 60px;
@@ -209,6 +210,7 @@ const NavButton = styled.div`
   justify-content: center;
   cursor: pointer;
   margin-right: 15px;
+  margin-left:15px;
 
   p {
     &:nth-child(1) {
