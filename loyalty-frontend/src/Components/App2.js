@@ -5,13 +5,17 @@ import '../css/App2.css'
 import '@tomtom-international/web-sdk-maps/dist/maps.css'
 import { useNavigate } from "react-router-dom";
 
-const App = () => {
+const App = (props) => {
   const mapElement = useRef()
   const [map, setMap] = useState({})
 
   const [longitude, setLongitude] = useState(76.3647)
   const [latitude, setLatitude] = useState(30.3564)
 
+  setTimeout(()=>{
+    setLatitude(props.olat);
+    setLongitude(props.olng)
+  },1000)
   const convertToPoints = (lngLat) => {
     return {
       point: {
@@ -57,7 +61,7 @@ const App = () => {
       lat: latitude,
     }
     const destinations = []
-
+   
     let map = tt.map({
       key: "OEztYg601CLK7aTnBRnf33Je4f9USz89",
       container: mapElement.current,
@@ -145,14 +149,18 @@ const App = () => {
     }
 
 
-    map.on('click', (e) => {
-      destinations.push(e.lngLat)
-      addDeliveryMarker(e.lngLat, map)
+    // map.on('load', (e) => {
+    
+  
+    // })
+    const obj={lat:0,lng:0}
+    obj.lat=props.dlat;
+    obj.lng=props.dlng;
+    destinations.push(obj)
+      addDeliveryMarker(obj, map)
       recalculateRoutes()
-    })
-
     return () => map.remove()
-  }, [longitude, latitude])
+  }, [longitude, latitude,props.dlat,props.dlng])
 
   return (
     <>
@@ -160,25 +168,7 @@ const App = () => {
         <div className="app">
           <div ref={mapElement} className="map" />
           <div className="search-bar">
-            <h1>Where to?</h1>
-            <input
-              type="text"
-              id="longitude"
-              className="longitude"
-              placeholder="Put in Longitude"
-              onChange={(e) => {
-                setLongitude(e.target.value)
-              }}
-            />
-            <input
-              type="text"
-              id="latitude"
-              className="latitude"
-              placeholder="Put in latitude"
-              onChange={(e) => {
-                setLatitude(e.target.value)
-              }}
-            />
+           
           </div>
         </div>
       )}
