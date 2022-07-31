@@ -43,7 +43,9 @@ function Orders() {
                 </p>
                 <div>
                 <Button objid={order._id} />
-                <button >Status</button>
+                
+                <button>Status</button>
+
                 </div>
                
                 
@@ -137,8 +139,17 @@ const OrderBasket = styled.div`
     border: none;
     outline: none;
     border-radius: 8px;
+    
   }
+  
+  button{
+    margin-left:5px;
+    }
+  
 `;
+
+
+
 
 const Product = styled.div`
   display: absolute;
