@@ -9,7 +9,7 @@ const BarChart = ({ chartData, chartData2 }) => {
         <h1>User Analytics</h1>
         <div className="ch">
           <Pie data={chartData} />
-          <Bar data={chartData2} style={{ height: "500px", width: "500px" }} />
+          <Bar data={chartData2}  />
         </div>
       </div>
     </React.Fragment>
