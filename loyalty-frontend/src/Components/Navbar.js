@@ -85,7 +85,9 @@ function Navbar({ email }) {
             <NavButton onClick={() => signOut()}>
               <p>   Sign Out</p>
               </NavButton>
-
+              <NavButton onClick={() => navigate("/scanner")}>
+              <p>   Scanner</p>
+              </NavButton>
           </RightContainer>
         </Inner>
         <MobileSearchbar>
