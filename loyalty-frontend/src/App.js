@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 import Address from "./Components/Address";
 import Checkout from "./Components/Checkout";
-
+import App2 from "./Components/App2";
 import Home from "./Components/Home";
 import Login from "./Components/Login";
 import Payment from "./Components/Payment";
@@ -56,6 +56,7 @@ function App() {
           <Route path="/addproduct" element={<AddProduct />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/orders" element={<Orders />} />
+          <Route path="/app2" element={<App2 />} />
         </Routes>
       </Container>
     </Router>
