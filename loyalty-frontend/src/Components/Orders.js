@@ -47,7 +47,9 @@ function Orders() {
                 </p>
                 <div>
                 <Button objid={order._id} />
+
                 <Stat objid={order._id}/>
+
                 </div>
                
                 
@@ -141,18 +143,27 @@ const OrderBasket = styled.div`
     border: none;
     outline: none;
     border-radius: 8px;
+    
   }
+  
+  button{
+    margin-left:5px;
+    }
+  
 `;
 
+
+
+
 const Product = styled.div`
-  display: flex;
+  display: absolute;
   align-items: center;
 `;
 
 const Image = styled.div`
   flex: 0.3;
   img {
-    width: 100%;
+    width: 20%;
   }
 `;
 const Description = styled.div`

@@ -91,23 +91,17 @@ const DeliveryGuy = (props) => {
   } else {
     return (
       <React.Fragment>
+        <div>
         <h1>Order Details</h1>
         <p>Name:{dat.address.fullName}</p>
         <p>Phone Number:{dat.address.phone}</p>
         <p>Address:</p>
-        <p>
-          {dat.address.flat} <br /> {dat.address.area} <br />
-          {dat.address.city} <br />
-          {dat.address.state} <br />
-        </p>
-        <button
-          onClick={(e) => {
-            setbutton(true);
-          }}
-        >
-          Click Me!
-        </button>
+
+        <p>{dat.address.flat} <br/> {dat.address.area} <br/>{dat.address.city} <br/>{dat.address.state} <br/></p>
+        <button className="Buon" onClick={(e)=>{setbutton(true)}}>Click Me!</button>
+
         <p>{oid._id}</p>
+        </div>
       </React.Fragment>
     );
   }
