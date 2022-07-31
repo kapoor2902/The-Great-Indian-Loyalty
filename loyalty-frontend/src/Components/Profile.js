@@ -8,7 +8,6 @@ import Progress from "./Progress";
 import { UserData1 } from "./Data2";
 import "../css/Profile.css";
 
-
 const Profile = () => {
   //states defined
   const [userData, setuserData] = useState({
