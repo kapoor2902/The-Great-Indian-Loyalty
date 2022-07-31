@@ -58,8 +58,45 @@ const Profile = () => {
   }
 
   //Calculating the percentage of progress
-  const percent = total / 1000;
-  const req = 100000 - total;
+  var limit = 0;
+if(total<100000){
+  limit=100000;
+}
+else if(total<200000){
+  limit=200000;
+}
+else if(total<300000){
+  limit=300000;
+}
+else if(total<400000){
+  limit=400000;
+}
+else if(total<500000){
+  limit=500000;
+}
+else if(total<600000){
+  limit=600000;
+}
+else if(total<700000){
+  limit=700000;
+}
+else if(total<800000){
+  limit=800000;
+}
+else if(total<900000){
+  limit=900000;
+}
+else if(total<1000000){
+  limit=1000000;
+}
+else
+limit = 2000000;
+//Calculating the percentage of progress
+const p=(total/limit)*100;
+const percent=p.toFixed(2);
+const req=limit-total;
+  // const percent = total / 1000;
+  // const req = 100000 - total;
   //Return Function for profile page
   return (
     <React.Fragment>
