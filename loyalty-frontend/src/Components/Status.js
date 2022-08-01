@@ -27,15 +27,17 @@ const Status = ({orderid}) => {
             setlng(data.address.longitude);
           };
           api();
-        const delivery=async()=>{
-          const {data}=await axios.get('https://hackon-backend1.herokuapp.com/status');
-          console.log(data);
-          setdlat(data.latitude);
-          setdlng(data.longitude);
-        }
-        delivery();
+        // const delivery=async()=>{
+        //   const {data}=await axios.get('https://hackon-backend1.herokuapp.com/status');
+        //   console.log(data);
+        //   setdlat(data.latitude);
+        //   setdlng(data.longitude);
+        // }
+        // delivery();
         const delivery2=async()=>{
-          const {data}=await axios.post('https://hackon-backend1.herokuapp.com/status/uff',{order_id:orderid});
+          const {data}=await axios.get(`http://hackon-backend1.herokuapp.com/status/${orderid}`);
+                    setdlat(data.latitude);
+          setdlng(data.longitude);
           console.log(data);
         }
         delivery2();
