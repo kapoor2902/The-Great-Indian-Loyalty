@@ -18,6 +18,7 @@ function Address() {
   const deliver = (e) => {
     e.preventDefault();
     const finaladdress = area + " " + city + " " + state;
+    const fa = encodeURIComponent(finaladdress);
     console.log(finaladdress);
     const axios = require("axios");
     const params = {
@@ -25,9 +26,33 @@ function Address() {
       query: finaladdress,
     };
 
-    axios
-      .get("http://api.positionstack.com/v1/forward", { params })
+    // axios
+    //   .get("http://api.positionstack.com/v1/forward", { params })
+    //   .then((response) => {
+    //     dispatch({
+    //       type: "SET_ADDRESS",
+    //       item: {
+    //         fullName,
+    //         phone,
+    //         flat,
+    //         area,
+    //         city,
+    //         state,
+    //         latitude: response.data.data[0].latitude,
+    //         longitude: response.data.data[0].longitude,
+    //       },
+    //     });
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+
+      axios
+      .get(`https://api.tomtom.com/search/2/geocode/${fa}.json?key=OEztYg601CLK7aTnBRnf33Je4f9USz89`)
       .then((response) => {
+        console.log("HELLO");
+        console.log(response.data.results[0].position.lat);
+        console.log(response.data.results[0].position.lon);
         dispatch({
           type: "SET_ADDRESS",
           item: {
@@ -37,14 +62,15 @@ function Address() {
             area,
             city,
             state,
-            latitude: response.data.data[0].latitude,
-            longitude: response.data.data[0].longitude,
+            latitude: response.data.results[0].position.lat,
+            longitude: response.data.results[0].position.lon,
           },
         });
       })
       .catch((error) => {
         console.log(error);
       });
+
 
     navigate("/payment");
   };
