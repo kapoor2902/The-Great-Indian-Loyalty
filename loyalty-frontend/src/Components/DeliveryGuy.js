@@ -13,7 +13,7 @@ const DeliveryGuy = (props) => {
     if (_id !== "No result") {
       const api = async () => {
         const { data } = await axios.get(
-          `https://hackon-backend1.herokuapp.com/scanme/${_id}`
+          `http://localhost:10002/scanme/${_id}`
         );
         console.log(data);
         setdata(data);
@@ -30,7 +30,7 @@ const DeliveryGuy = (props) => {
           const api2 = async () => {
             console.log(_id);
             const { data } = await axios.post(
-              "https://hackon-backend1.herokuapp.com/deliveryguy/",
+              "http://localhost:10002/deliveryguy/",
               {
                 latitude: position.coords.latitude,
                 longitude: position.coords.longitude,
@@ -55,7 +55,7 @@ const DeliveryGuy = (props) => {
           await window.navigator.geolocation.getCurrentPosition((position) => {
             const update2 = async () => {
               const { data } = await axios.put(
-                `https://hackon-backend1.herokuapp.com/deliveryguy/${oid._id}`,
+                `https://localhost:10002/deliveryguy/${oid._id}`,
                 {
                   latitude: position.coords.latitude,
                   longitude: position.coords.longitude,
